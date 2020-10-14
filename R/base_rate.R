@@ -10,7 +10,6 @@
 #' @examples
 #' base_rate()
 #' @export
-#' @import lubridate
 #' @importFrom glue glue
 #' @importFrom rlang is_null
 #' @source https://api.bnm.gov.my/

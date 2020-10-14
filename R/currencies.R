@@ -1,3 +1,4 @@
+utils::globalVariables(c("period"))
 #' Renminbi
 #'
 #' This function allows you to extract indicative CNY/MYR
@@ -9,6 +10,7 @@
 #' @importFrom tibble tibble
 #' @importFrom purrr map_dbl
 #' @importFrom rlang .data
+#' @importFrom utils globalVariables
 #' @examples
 #' \dontrun{renminbi(type = "dar")}
 #' renminbi(type = "fx_forward")
@@ -31,6 +33,7 @@ renminbi <- function(type = "dar") {
   }
   else {
     fx_forward_list <- bnm_api(paths[[type]])[["content"]][["data"]]
+
     tibble(
       date = fx_forward_list[["date"]],
       period = c("spot", "2_weeks", "1_month", "2_months", "3_months", "4_months", "5_months", "6_months"),
